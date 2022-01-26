@@ -1,57 +1,28 @@
 import React from "react";
 
-const listCustomer = [
-    {
-        id: 1,
-        name: 'Nome 1',
-        skills: ['PHP','NodeJs','Laravel','React']
-
-    },
-    {
-        id: 2,
-        name: 'Nome 2',
-        skills: ['Laravel','NodeJs','VueJs','React']
-    },
-    {
-        id: 3,
-        name: 'Nome 3',
-        skills: ['Angular','VueJs','React']
-    },
-    {
-        id: 4,
-        name: 'Nome 4',
-        skills: ['NodeJs','React']
-    }
-];
-
 const App = () => {
 
-    const renderCustomers = (customer, index) => {
-        return (
-            <div key={`customer-${customer.id}`}>
-                <li>{customer.name}</li>
-                {customer.skills.map(renderSkills)}
-            </div>
-        );
+    const name = 'Digital Innovation One';
+
+    const handleChange = (e) => {
+        const { value } = e.target;
+        console.log(value);
     }
 
-    const renderSkills = (skill, index) => {
-        return (
-            <div style={{paddingLeft: `30px`}}  key={`skill-${index}`}>
-                <li>{skill}</li>
-            </div>
-        );
+    const showEvent = (e) => {
+        console.log(`eventto clicado`);
+        console.log(e);
+        alert(name)
     }
+
+    const Button = <button onClick={showEvent}>Mostrar evento</button>
 
     return (
         <div>
             <p>Digital Innovation One</p>
             <p>Bem vindo a nossa aula =D.</p>
-            <div>
-                <ul>
-                    {listCustomer.map((renderCustomers))}
-                </ul>
-            </div>
+            <input onChange={handleChange} />
+            {Button}
         </div>
     );
 };
